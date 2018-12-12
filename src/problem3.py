@@ -163,7 +163,7 @@ def problem3a(r, s):
           -- 5 cubed is   125, whose sum of digits is  8, which is NOT odd.
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -174,15 +174,13 @@ def problem3a(r, s):
     ###########################################################################
 
     total = 0
-    for k in range(r, s, 1):
-        a = (r + k) ** 3
-        a = sum_of_digits(a)
-        if a // 2 == 1:
+    for k in range(s - r + 1):
+        x = (r + k) ** 3
+        y = sum_of_digits(x)
+        if y % 2 == 1:
             total = total + (r + k)
-        else:
-            total = total
-    x = sum_of_digits(total)
-    return x
+
+    return total
 
 
 def run_test_problem3b():
@@ -291,13 +289,14 @@ def problem3b(m, r):
            which is approximately 12.020144157845959.
      """
     ###########################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     ###########################################################################
 
     total = 0
-    for k in range(m ):
-        total = total + (1/((r + k)**(k+1)))
+    for k in range(m):
+        total = total + (1 + k)/((r + k) ** (k + 1))
+
     return total
 
 
