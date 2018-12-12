@@ -3,13 +3,13 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Brenadan Boewe.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -104,6 +104,22 @@ def problem1(square, thickness, window):
     # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    square.attach_to(window)
+    x = square.center.x
+    y = square.center.y + square.length_of_each_side
+    radius = square.length_of_each_side/2
+    center = rg.Point(x, y)
+    circle = rg.Circle(center, radius)
+    circle.fill_color = square.fill_color
+    circle.outline_thickness = thickness
+    circle.attach_to(window)
+    x1 = square.center.x - (square.length_of_each_side/2)
+    y1 = square.center.y
+    line = rg.Line(circle.center, rg.Point(x1, y1))
+    line.color = square.outline_color
+    line.thickness = thickness
+    window.render()
 
 
 # -----------------------------------------------------------------------------
